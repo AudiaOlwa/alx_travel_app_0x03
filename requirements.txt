@@ -1,2 +1,4 @@
-Django>=5.0
-django-environ
+asgiref==3.10.0
+Django==5.2.7
+django-environ==0.12.0
+sqlparse==0.5.3

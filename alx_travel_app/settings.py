@@ -1,8 +1,12 @@
 import os
 import environ
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
 
+CHAPA_SECRET_KEY = os.getenv('CHAPA_SECRET_KEY')
+CHAPA_BASE_URL = os.getenv('CHAPA_BASE_URL', 'https://api.chapa.co/v1')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 #BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,7 +51,8 @@ INSTALLED_APPS = [
     "corsheaders",
     "drf_yasg",
     'rest_framework_simplejwt',
-    "listings",
+    'alx_travel_app.listings',
+    
 ]
 
 REST_FRAMEWORK = {
@@ -117,7 +122,7 @@ DATABASES = {
    "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": env("DB_NAME", default="alx_travel_app"),
-        "USER": env("DB_USER", default="root"),
+        "USER": env("DB_USER", default="alx_user"),
         "PASSWORD": env("DB_PASSWORD", default="Audi25sqlpass"),
         "HOST": env("DB_HOST", default="localhost"),
         "PORT": env("DB_PORT", default="3306"),
